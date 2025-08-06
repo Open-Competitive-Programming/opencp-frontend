@@ -23,7 +23,9 @@ def api_frontend_get_index():
     Renders /
     """
 
-    return render_template("index.html")
+    return render_template(
+        "index.html", fullname="Andreas Stratakis", rank="unranked", nameholder="AS"
+    )
 
 
 def create_app():
