@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+{% include 'header.html' %}
+
+<body>
+  <script src="{{url_for('static', filename='dist/js/demo-theme.min.js')}}"></script>
+  <div class="page">
+
+    {% include 'navbar.html' %}
+    <div class="page-wrapper">
+      <div class="page-header d-print-none">
+        <div class="container-xl">
+          <div class="row g-2 align-items-center">
+            <div class="col">
+              <div class="page-pretitle">
+                Overview
+              </div>
+              <h2 class="page-title">
+                Dashboard
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% include 'footer.html' %}
+    </div>
+  </div>
+
+  <script src="{{url_for('static', filename='dist/js/tabler.min.js')}}" defer></script>
+  <script src="{{url_for('static', filename='dist/js/demo.min.js')}}" defer></script>
+
+  <script src="{{url_for('static', filename='custom-js/logout.js')}}" defer></script>
+  <script src="{{url_for('static', filename='custom-js/fetch-computers.js')}}" defer></script>
+</body>
+
+</html>

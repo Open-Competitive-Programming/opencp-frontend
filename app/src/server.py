@@ -24,8 +24,111 @@ def api_frontend_get_index():
     """
 
     return render_template(
-        "index.html", fullname="Andreas Stratakis", rank="unranked", nameholder="AS"
+        "index.html",
+        fullname="Andreas Stratakis",
+        rank="unranked",
+        nameholder="AS",
+        active_page="home",
     )
+
+
+@frontend.route("/problemset", methods=["GET"])
+def api_frontend_get_problemset():
+    """
+    Renders /problemset
+    """
+
+    return render_template(
+        "problemset.html",
+        fullname="Andreas Stratakis",
+        rank="unranked",
+        nameholder="AS",
+        active_page="problemset",
+    )
+
+
+@frontend.route("/contests", methods=["GET"])
+def api_frontend_get_contests():
+    """
+    Renders /contests
+    """
+
+    return render_template(
+        "contests.html",
+        fullname="Andreas Stratakis",
+        rank="unranked",
+        nameholder="AS",
+        active_page="contests",
+    )
+
+
+@frontend.route("/discussion", methods=["GET"])
+def api_frontend_get_discussion():
+    """
+    Renders /discussion
+    """
+
+    return render_template(
+        "discussion.html",
+        fullname="Andreas Stratakis",
+        rank="unranked",
+        nameholder="AS",
+        active_page="discussion",
+    )
+
+
+@frontend.route("/google", methods=["GET"])
+def api_frontend_get_google():
+    """
+    Renders /google
+    """
+
+    return render_template(
+        "google.html",
+        fullname="Andreas Stratakis",
+        rank="unranked",
+        nameholder="AS",
+        active_page="google",
+    )
+
+
+@frontend.route("/ieeextreme", methods=["GET"])
+def api_frontend_get_ieeextreme():
+    """
+    Renders /ieeextreme
+    """
+
+    return render_template(
+        "ieeextreme.html",
+        fullname="Andreas Stratakis",
+        rank="unranked",
+        nameholder="AS",
+        active_page="ieeextreme",
+    )
+
+
+@frontend.route("/projecteuler", methods=["GET"])
+def api_frontend_get_projecteuler():
+    """
+    Renders /projecteuler
+    """
+
+    return render_template(
+        "projecteuler.html",
+        fullname="Andreas Stratakis",
+        rank="unranked",
+        nameholder="AS",
+        active_page="projecteuler",
+    )
+
+
+@frontend.route("/changelog", methods=["GET"])
+def api_frontend_get_changelog():
+    """
+    Renders /changelog
+    """
+
+    return render_template("changelog.html")
 
 
 def create_app():
