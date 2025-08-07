@@ -6,6 +6,7 @@ import os
 
 from apiflask import APIFlask, APIBlueprint
 from flask import render_template
+from routes.google import google
 
 frontend = APIBlueprint(
     "frontend",
@@ -77,21 +78,6 @@ def api_frontend_get_discussion():
     )
 
 
-@frontend.route("/google", methods=["GET"])
-def api_frontend_get_google():
-    """
-    Renders /google
-    """
-
-    return render_template(
-        "google.html",
-        fullname="Andreas Stratakis",
-        rank="unranked",
-        nameholder="AS",
-        active_page="google",
-    )
-
-
 @frontend.route("/ieeextreme", methods=["GET"])
 def api_frontend_get_ieeextreme():
     """
@@ -131,6 +117,21 @@ def api_frontend_get_changelog():
     return render_template("changelog.html")
 
 
+@frontend.route("/editor/<problem_id>", methods=["GET"])
+def api_frontend_get_editor(problem_id: str):
+    """
+    Renders /editor
+    """
+
+    return render_template(
+        "editor.html",
+        fullname="Andreas Stratakis",
+        rank="unranked",
+        nameholder="AS",
+        active_page="none",
+    )
+
+
 def create_app():
     """
     Creates the Flask application
@@ -141,6 +142,7 @@ def create_app():
     app.config.from_prefixed_env()
 
     app.register_blueprint(frontend)
+    app.register_blueprint(google, url_prefix="/google")
 
     app.config["settings"] = {
         "FLASK_RUN_HOST": os.getenv("FLASK_RUN_HOST", "0.0.0.0"),

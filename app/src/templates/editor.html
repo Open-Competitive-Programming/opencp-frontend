@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+
+{% include 'header.html' %}
+
+<body>
+  <script src="{{url_for('static', filename='dist/js/demo-theme.min.js')}}"></script>
+  <div class="page">
+    {% include 'navbar.html' %}
+    <div class="page-wrapper">
+      <div class="page-header d-print-none">
+        <div class="container-xl">
+          <div class="col g-2 align-items-center text-center">
+            <div class="col">
+              <h2 class="page-title justify-content-center">
+                Add 2 numbers
+              </h2>
+              <div class="page-pretitle">
+                Time limit: 1000 ms
+              </div>
+              <div class="page-pretitle">
+                Memory limit: 256 MB
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% include 'footer.html' %}
+    </div>
+  </div>
+
+  <script src="{{url_for('static', filename='dist/js/tabler.min.js')}}" defer></script>
+  <script src="{{url_for('static', filename='dist/js/demo.min.js')}}" defer></script>
+
+  <script src="{{url_for('static', filename='custom-js/logout.js')}}" defer></script>
+  <script src="{{url_for('static', filename='custom-js/fetch-computers.js')}}" defer></script>
+</body>
+
+</html>
