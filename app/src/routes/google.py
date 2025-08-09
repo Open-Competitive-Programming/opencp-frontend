@@ -42,6 +42,18 @@ def api_get_google_codejam():
     )
 
 
+@google.route("/codejam/<year>", methods=["GET"])
+def api_get_google_codejam_year(year: str):
+
+    return render_template(
+        "google-codejam-year.html",
+        fullname="Andreas Stratakis",
+        rank="unranked",
+        nameholder="AS",
+        active_page="google",
+    )
+
+
 @google.route("/kickstart", methods=["GET"])
 def api_get_google_kickstart():
 

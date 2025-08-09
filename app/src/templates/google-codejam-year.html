@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+{% include 'header.html' %}
+
+<body>
+  <script src="{{url_for('static', filename='dist/js/demo-theme.min.js')}}"></script>
+  <div class="page">
+
+    {% include 'navbar.html' %}
+    <div class="page-wrapper">
+      <div class="page-header d-print-none">
+        <div class="container-xl">
+          <div class="row g-2 align-items-center">
+            <div class="col">
+              <h2 class="page-title">
+                Google Code Jam
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{url_for('static', filename='dist/js/tabler.min.js')}}" defer></script>
+    <script src="{{url_for('static', filename='dist/js/demo.min.js')}}" defer></script>
+
+    <script src="{{url_for('static', filename='custom-js/logout.js')}}" defer></script>
+    <script src="{{url_for('static', filename='custom-js/fetch-computers.js')}}" defer></script>
+</body>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const path = window.location.pathname;
+
+    const year = path.split("/").filter(Boolean).pop();
+
+    if (year && /^\d{4}$/.test(year)) {
+      const titleElement = document.querySelector(".page-title");
+      if (titleElement) {
+        titleElement.textContent = `Google Code Jam ${year}`;
+      }
+    }
+  });
+</script>
+
+</html>
