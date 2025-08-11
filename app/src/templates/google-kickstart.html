@@ -14,7 +14,7 @@
           <div class="row g-2 align-items-center">
             <div class="col">
               <h2 class="page-title">
-                Google Competitions
+                Google Kickstart
               </h2>
             </div>
           </div>
@@ -22,74 +22,7 @@
       </div>
       <div class="page-body">
         <div class="container-xl">
-          <div class="row row-cards">
-            <div class="col-md-6 col-lg-6">
-              <a href="/google/codejam" class="card card-link bg-primary text-primary-fg">
-                <div class="card-stamp">
-                  <div class="card-stamp-icon bg-white text-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
-                      stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path
-                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
-                    </svg>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h3 class="card-title">Code Jam</h3>
-                  <p>
-                    Google Code Jam was an annual global programming competition hosted by Google from 2003 to 2022. It
-                    featured challenging algorithmic problems and attracted top coders worldwide. Participants competed
-                    in multiple online rounds for a chance to reach the finals and win cash prizes. In 2023, Google
-                    retired the competition to focus on new ways of engaging developers.</p>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-6 col-lg-6">
-              <a href="/google/hashcode" class="card card-link bg-primary text-primary-fg">
-                <div class="card-stamp">
-                  <div class="card-stamp-icon bg-white text-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
-                      stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path
-                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
-                    </svg>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h3 class="card-title">Hash Code</h3>
-                  <p>
-                    Hash Code was a team-based programming competition organized by Google from 2014 to 2022. It
-                    focused on solving real-world engineering problems using optimization and algorithmic techniques.
-                    Teams of 2 to 4 competed in an online qualification round and a final round. Google retired Hash
-                    Code in 2023 to pursue new ways of engaging with the developer community.</p>
-                </div>
-              </a>
-            </div>
-            <div class="col-md-6 col-lg-6">
-              <a href="/google/kickstart" class="card card-link bg-primary text-primary-fg">
-                <div class="card-stamp">
-                  <div class="card-stamp-icon bg-white text-primary">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
-                      stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path
-                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
-                    </svg>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h3 class="card-title">Kickstart</h3>
-                  <p>
-                    Kick Start was an individual online coding competition hosted by Google from 2013 to 2022. It
-                    offered algorithmic challenges designed to help programmers improve their skills and prepare for
-                    technical interviews. Open to coders of all levels, it featured multiple rounds throughout the year.
-                    Kick Start was officially discontinued in 2023 along with other Google competitions.
-                  </p>
-                </div>
-              </a>
-            </div>
+          <div class="row row-cards" id="cards-container">
           </div>
         </div>
       </div>
@@ -101,5 +34,43 @@
     <script src="{{url_for('static', filename='custom-js/logout.js')}}" defer></script>
     <script src="{{url_for('static', filename='custom-js/fetch-computers.js')}}" defer></script>
 </body>
+
+<script>
+  const data = [
+    { year: 2013, attempted: "2/10", solved: "2/10", progress: 90 },
+    { year: 2014, attempted: "2/10", solved: "2/10", progress: 90 },
+    { year: 2015, attempted: "2/10", solved: "2/10", progress: 90 },
+    { year: 2016, attempted: "2/10", solved: "2/10", progress: 90 },
+    { year: 2017, attempted: "2/10", solved: "2/10", progress: 90 },
+    { year: 2018, attempted: "2/10", solved: "2/10", progress: 90 },
+    { year: 2019, attempted: "2/10", solved: "2/10", progress: 90 },
+    { year: 2020, attempted: "2/10", solved: "2/10", progress: 90 },
+    { year: 2021, attempted: "2/10", solved: "2/10", progress: 90 },
+    { year: 2022, attempted: "2/10", solved: "2/10", progress: 90 },
+  ];
+
+  const container = document.getElementById("cards-container");
+
+  data.forEach(({ year, attempted, solved, progress }) => {
+    container.innerHTML += `
+      <div class="col-md-6 col-lg-3">
+        <a href="/google/kickstart/${year}" class="card card-link text-decoration-none">
+          <div class="card-body">
+            <h3 class="card-title">${year}</h3>
+            <p class="text-secondary">Attempted: ${attempted}</p>
+            <p class="text-secondary">Solved: ${solved}</p>
+          </div>
+          <div class="progress progress-sm card-progress">
+            <div class="progress-bar" style="width: ${progress}%" role="progressbar"
+              aria-valuenow="${progress}" aria-valuemin="0" aria-valuemax="100"
+              aria-label="${progress}% Complete">
+              <span class="visually-hidden">${progress}% Complete</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    `;
+  });
+</script>
 
 </html>
